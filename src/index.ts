@@ -1,1 +1,1 @@
-console.log('init')
+console.dir('init')
