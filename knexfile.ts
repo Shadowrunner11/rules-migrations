@@ -72,4 +72,6 @@ const config: { [key: string]: Config } = {
   })
 };
 
+export default config;
+
 module.exports = config;

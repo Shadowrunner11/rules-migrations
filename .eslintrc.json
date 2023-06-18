@@ -11,6 +11,7 @@
     "quotes":["error", "single"],
     "complexity": "error",
     "require-jsdoc": "error",
-    "no-console": ["error", { "allow": ["dir", "error"] }]
+    "no-console": ["error", { "allow": ["dir", "error"] }],
+    "object-curly-spacing": ["error", "always"]
   }
 }

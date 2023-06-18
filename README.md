@@ -159,9 +159,9 @@ ya que WSL comparte esta red con el host.
 
 - [x] Añadir eslint
 - [x] Añadir prettier
-- [ ] Añadir en el knexfile.ts la lectura de credenciales por medio de un .env
-- [ ] Añadir dot env de ser necesario
+- [x] Añadir en el knexfile.ts la lectura de credenciales por medio de un .env
+- [x] Añadir dot env de ser necesario
 - [ ] Añadir los templates para los issues y prs
-- [ ] Añadir ojection.js como ORM
+- [x] Añadir ojection.js como ORM
 - [ ] Contemplar el uso de Koa para exponer ciertas funcionalidades
-- [ ] Contemplar el uso jest o mocha + chai para tests aprovechando Objection.js
+- [x] Contemplar el uso jest o mocha + chai para tests aprovechando Objection.js
