@@ -16,6 +16,6 @@
   "ts-node": {
     "swc": true
   },
-  "include": ["src/**/*.ts", "knexfile.ts"],
+  "include": ["src/**/*.ts", "knexfile.ts", "__test__/**/*.ts"],
   "exclude": ["node_modules/"]
 }

@@ -57,12 +57,12 @@ Adentro de este archivo encontrarás algo como esto
 ```ts
 import { Knex } from 'knex';
 
-/* Esta función se ejecutará cuando la migración use este archivo 
+/* Esta función se ejecutará cuando la migración use este archivo
   para actualziar la DB
 */
 export function up(knex: Knex.CreateTableBuilder) {}
 
-/* Esta función se ejecutará cuando la migración use este archivo 
+/* Esta función se ejecutará cuando la migración use este archivo
   para hacer un roolback (volver hacia atrás)
 */
 export function down(knex: Knex.CreateTableBuilder) {
@@ -157,8 +157,8 @@ ya que WSL comparte esta red con el host.
 
 ## Roadmap
 
-- [ ] Añadir eslint
-- [ ] Añadir prettier
+- [x] Añadir eslint
+- [x] Añadir prettier
 - [ ] Añadir en el knexfile.ts la lectura de credenciales por medio de un .env
 - [ ] Añadir dot env de ser necesario
 - [ ] Añadir los templates para los issues y prs

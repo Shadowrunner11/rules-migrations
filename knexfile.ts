@@ -1,10 +1,13 @@
+import 'dotenv/config';
 import { Knex } from 'knex';
 
 type Config = Knex.Config
+type ConectionConfig = Knex.StaticConnectionConfig
 
 const globalConfig : Config = {
   migrations: {
-    directory:'src/migrations'
+    directory:'src/migrations',
+    tableName: 'knex_migrations'
   },
   seeds: {
     directory: 'src/seeds'
@@ -16,6 +19,11 @@ const withGLobalConfig : (specificConfig: Config)=> Config = (specificConfig: Co
   ...specificConfig
 })
 
+const connectionDefaultConfig : ConectionConfig = {
+  user: process.env.USER_POSTGRES,
+  password: process.env.PASSWORD_POSTGRES
+}
+
 const config: { [key: string]: Config } = {
   local:withGLobalConfig({
     client: 'sqlite3',
@@ -25,18 +33,22 @@ const config: { [key: string]: Config } = {
   }),
 
   development: withGLobalConfig({
-    client: 'sqlite3',
+    client: 'postgresql',
     connection: {
-      filename: './dev.sqlite3'
+      database: 'rules_dev',
+     ...connectionDefaultConfig
+    },
+    pool: {
+      min: 2,
+      max: 10
     }
   }),
 
   staging:withGLobalConfig({
     client: 'postgresql',
     connection: {
-      database: 'my_db',
-      user: 'username',
-      password: 'password'
+      database: 'rules_test',
+      ...connectionDefaultConfig
     },
     pool: {
       min: 2,
@@ -50,16 +62,12 @@ const config: { [key: string]: Config } = {
   production: withGLobalConfig({
     client: 'postgresql',
     connection: {
-      database: 'my_db',
-      user: 'username',
-      password: 'password'
+      database: 'rules_prod',
+      ...connectionDefaultConfig
     },
     pool: {
       min: 2,
       max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
     }
   })
 };
