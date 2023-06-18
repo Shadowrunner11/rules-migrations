@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: Ubuntu-latest
     env:
-      NODE_ENV_TEST: development
+      NODE_ENV_TEST: local
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
