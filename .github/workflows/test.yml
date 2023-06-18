@@ -3,6 +3,7 @@ name: Node.js test CI
 on:
   pull_request:
     branches: [main]
+    paths: *.ts
 
 jobs:
   build:
