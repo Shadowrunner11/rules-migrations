@@ -1,7 +1,9 @@
 import 'dotenv/config'
 import { Model } from 'objection'
 import Knex from 'knex'
-import { describe, expect, test, afterAll } from '@jest/globals';
+import { describe, expect, test, afterAll, beforeAll } from '@jest/globals';
+import { faker } from '@faker-js/faker';
+
 import { Language } from '../src/data/models/Language';
 import config from '../knexfile'
 
@@ -15,15 +17,23 @@ afterAll(done =>{
     .catch(()=>done())
 })
 
-describe('initial migration', () => {
-  test('adds 1 + 2 to equal 3', async () => {
-    const languageInstance = await Language.query().insertAndFetch({
-      alias: 'asddtest',
-      name: 'asdasdtest'
-    })
+beforeAll(async ()=>{
+  await KenexInstance.migrate.up()
+})
 
-    expect(languageInstance).toHaveProperty('alias', 'asddtest');
-    expect(languageInstance).toHaveProperty('name', 'asdasdtest');
+describe('initial migration', () => {
+  test('inserting language data', async () => {
+    const insertMockData = {
+      alias: faker.system.commonFileExt(),
+      name: faker.system.commonFileType()
+    }
+    const languageInstance = await Language.query().insertAndFetch(insertMockData)
+
+    expect(languageInstance).toHaveProperty('alias', insertMockData.alias);
+    expect(languageInstance).toHaveProperty('name', insertMockData.name);
+
+
+    await Language.query().deleteById(languageInstance.$id())
   });
 
 });
