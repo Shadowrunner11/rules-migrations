@@ -43,8 +43,6 @@ body:
     id: sub-tareas
     attributes:
       label: Sub tareas
-    validations:
-      required: true
 
   - type: textarea
     id: alternatives-considered
