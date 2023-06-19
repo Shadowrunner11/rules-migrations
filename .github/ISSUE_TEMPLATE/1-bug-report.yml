@@ -68,7 +68,7 @@ body:
         OS: linux x64
 
   - type: textarea
-    id: sub tareas
+    id: sub-tareas
     attributes:
       label: Sub tareas
 
