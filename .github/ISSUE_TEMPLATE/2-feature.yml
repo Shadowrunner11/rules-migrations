@@ -40,6 +40,13 @@ body:
       required: true
 
   - type: textarea
+    id: sub-tareas
+    attributes:
+      label: Sub tareas
+    validations:
+      required: true
+
+  - type: textarea
     id: alternatives-considered
     attributes:
       label: Alternativas consideradas
